@@ -4,8 +4,9 @@ services:
     tty: true
     stdin_open: true
     build: .
-    command: /bin/sh -c "rm -f /rails6webapi/tmp/pids/server.pid && bundle exec rails s -p 8000 -b '0.0.0.0'"
-    volumes:
-      - .:/rails6webapi
     ports:
       - "8000:8000"
+    # command: /bin/sh -c "rm -f /rails6webapi/tmp/pids/server.pid && bundle exec rails s -p 8000 -b '0.0.0.0'"
+    command: /bin/sh -c "rm -f /rails6webapi/tmp/pids/server.pid && rails s -p 8000 -b '0.0.0.0'"
+    volumes:
+      - .:/rails6webapi

@@ -1,21 +1,20 @@
 FROM ruby:2.6.5
-
+ENV LANG C.UTF-8
+ENV TZ Asia/Tokyo
 # 必要なパッケージのインストール（基本的に必要になってくるものだと思うので削らないこと）
 RUN apt-get update -qq && \
     apt-get install -y build-essential \ 
                        libpq-dev \        
+                       vim \        
                        nodejs           
 
-# 作業ディレクトリの作成、設定
-RUN mkdir /rails6webapi
-##作業ディレクトリ名をAPP_ROOTに割り当てて、以下$APP_ROOTで参照
-ENV APP_ROOT /rails6webapi 
-WORKDIR $APP_ROOT
-
-# ホスト側（ローカル）のGemfileを追加する（ローカルのGemfileは【３】で作成）
-ADD ./Gemfile $APP_ROOT/Gemfile
-ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
-
-# Gemfileのbundle install
+RUN gem install bundler
+WORKDIR /tmp
+ADD Gemfile Gemfile
+ADD Gemfile.lock Gemfile.lock
+# RUN bundle install --path vendor/bundle
 RUN bundle install
-ADD . $APP_ROOT
+ENV APP_HOME /rails6webapi
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+ADD . $APP_HOME
