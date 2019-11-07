@@ -47,7 +47,7 @@ server "192.168.100.3", user: "deploy", roles: %w{app}
 #    auth_methods: %w(password)
 #  }
 set :ssh_options, {
-  keys: %w(~/.ssh/rails6webAPI_id_rsa),
+  keys: %w(~/.ssh/id_rsa),
   forward_agent: true,
   auth_methods: %w(publickey)
 }
