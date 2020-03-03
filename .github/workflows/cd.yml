@@ -1,9 +1,10 @@
 name: Continuous Delivery 
-on: push
-branches:
-  - master
+on:
+  push:
+    branches:
+      - master
 jobs:
-  build: production-deploy
+  production-deploy:
     name: cap production deploy
     runs-on: self-hosted
     steps:
