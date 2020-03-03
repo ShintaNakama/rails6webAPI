@@ -1,0 +1,10 @@
+name: Continuous Delivery 
+on: push
+branches:
+  - master
+jobs:
+  build: production-deploy
+    name: cap production deploy
+    runs-on: self-hosted
+    steps:
+      - run: bundle exec cap production deploy
