@@ -1,6 +1,6 @@
 class HelloController < ApplicationController
   def index
-    res = "helloworld！yes!!!!!!!!!!!!!!!!!!77777777"
+    res = "helloworld"
     render json: res
   end
 end
