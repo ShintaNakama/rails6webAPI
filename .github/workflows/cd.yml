@@ -8,4 +8,9 @@ jobs:
     name: cap production deploy
     runs-on: self-hosted
     steps:
-      - run: bundle exec cap production deploy
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: cd deploy directry
+        run: cd /var/www/rails6webAPI/
+      - name: deploy-execute
+        run: bundle exec cap production deploy
