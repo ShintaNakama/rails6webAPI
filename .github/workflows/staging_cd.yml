@@ -2,7 +2,7 @@ name: Continuous Delivery
 on:
   push:
     branches:
-      - master
+      - staging
 jobs:
   production-deploy:
     name: cap production deploy
