@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2.0.0
       - name: Set ref
         run: |
-          git fetch --prune --unshallow
+          git fetch --all
           git checkout master
       - name: deploy-execute
         run: cd /var/www/rails6webAPI/ && bundle exec cap production deploy
