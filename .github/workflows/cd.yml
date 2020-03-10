@@ -11,4 +11,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.0.0
       - name: deploy-execute
-        run: cd /var/www/rails6webAPI/ && bundle exec cap production deploy && git fetch --all
+        run: cd /var/www/rails6webAPI/ && bundle exec cap production deploy && git fetch --all && git pull
