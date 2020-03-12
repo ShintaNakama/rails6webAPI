@@ -8,5 +8,7 @@ jobs:
     name: cap production deploy
     runs-on: self-hosted
     steps:
+      - name: test
+        run: echo $GITHUB_REF
       - name: deploy-execute
         run: cd /var/www/rails6webAPI/ && git fetch --all && git pull && bundle exec cap production deploy
