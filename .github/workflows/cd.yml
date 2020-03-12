@@ -2,7 +2,7 @@ name: Continuous Delivery
 on:
   push:
     tags:
-      - staging
+      - staging_v2
 jobs:
   production-deploy:
     name: cap production deploy
