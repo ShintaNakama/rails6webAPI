@@ -11,4 +11,4 @@ jobs:
       - name: test
         run: echo $GITHUB_REF
       - name: deploy-execute
-        run: cd /var/www/rails6webAPI/ && git fetch --all && git $GITHUB_REF
+        run: cd /var/www/rails6webAPI/ && git fetch --all && git checkout $GITHUB_REF
